@@ -1,0 +1,31 @@
+.btn {
+	display: block;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	min-height: 40px;
+	padding: 0 8px;
+	font-size: 14px;
+
+	&--danger {
+		background-color: #FF8888;
+	}
+
+	&--cancel {
+		background-color: white;
+		color: #2D2D2D;
+	}
+
+	&--full {
+		width: 100%;
+	}
+
+	&--shadow {
+		box-shadow: 0 0 20px 0px #e97777;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
