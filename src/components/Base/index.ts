@@ -1,3 +1,4 @@
 import BaseDialog from './BaseDialog.vue';
+import BaseIconClose from './BaseIconClose.vue';
 
-export default [BaseDialog];
+export default [BaseDialog, BaseIconClose];

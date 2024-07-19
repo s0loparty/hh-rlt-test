@@ -1,4 +1,19 @@
 .dragger {
+	&__ghost-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 24px;
+		border: 1px solid var(--color-secondary);
+		background-color: var(--color-primary);
+		width: 105px;
+		height: 100px;
+		position: absolute;
+		left: -100%;
+		z-index: 10;
+	}
+
 	&__wrap {
 		overflow: hidden;
 		position: relative;
@@ -23,7 +38,7 @@
 		// box-shadow: 0 0 1px var(--color-secondary);
 
 		&--active {
-			background-color: #2F2F2F;
+			background-color: var(--color-active-item);
 		}
 
 		&::before,

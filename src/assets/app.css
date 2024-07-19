@@ -4,6 +4,7 @@
 @import './scss/dragger.scss';
 @import './scss/footer.scss';
 @import './scss/button.scss';
+@import './scss/dialog.scss';
 
 .content {
 	margin: 0 auto;
@@ -54,7 +55,7 @@
 	top: 0;
 	height: 100%;
 	width: 150px;
-	background: linear-gradient(to right, transparent 0%, #e8e8e844 50%, transparent 100%);
+	background: linear-gradient(to right, transparent 0%, var(--skeleton-bg) 50%, transparent 100%);
 	animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 

@@ -1,5 +1,8 @@
 <template>
 	<footer class="footer">
-		<div class="skeleton" style="height: 36px"></div>
+		<button class="footer__close">
+			<BaseIconClose />
+		</button>
+		<div class="skeleton" style="height: 36px; width: 95%"></div>
 	</footer>
 </template>

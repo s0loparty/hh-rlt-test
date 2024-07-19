@@ -1,6 +1,9 @@
 <template>
 	<section class="dragger">
 		<div class="dragger__wrap">
+			<div ref="ghostElementRef" class="dragger__ghost-item">
+				<InventoryImage v-if="ghostOptions.cell" :cell="ghostOptions.cell" />
+			</div>
 			<div @drop="onDrop($event)" class="dragger__items">
 				<div
 					v-for="cell in COUNT_CELL"
@@ -33,9 +36,14 @@
 <script setup lang="ts">
 import { COUNT_CELL } from '@/constants';
 import { useInventoryStore } from '@/stores/inventory';
+import useDragAndDrop from '@/use/draganddrop';
 import InventoryImage from './InventoryImage.vue';
 import InventoryCardInfo from './InventoryCardInfo.vue';
+import { ref } from 'vue';
+import type { TGhostElement } from '@/types';
 
+const ghostElementRef = ref<TGhostElement>(null);
+const { ghostOptions, onDrop, startDrag } = useDragAndDrop(ghostElementRef);
 const inventoryStore = useInventoryStore();
 
 const closeDialog = () => {
@@ -47,26 +55,5 @@ const showInventoryInfo = (cell: number): void => {
 	if (!item) return;
 
 	inventoryStore.select(item);
-};
-
-// NATIVE
-const startDrag = (ev: DragEvent, cell: number): void => {
-	// @ts-ignore
-	ev.dataTransfer.dropEffect = 'move';
-	// @ts-ignore
-	ev.dataTransfer.effectAllowed = 'move';
-	// @ts-ignore
-	ev.dataTransfer.setData('cell', `${cell}`);
-};
-
-const onDrop = (ev: DragEvent) => {
-	const prevCell = +ev.dataTransfer!.getData('cell');
-	// @ts-ignore
-	const dropCell = Number(ev.target.id);
-
-	const dropCellNotEmpty = inventoryStore.getItem(dropCell);
-	if (dropCellNotEmpty || dropCell === 0) return false;
-
-	inventoryStore.updateByCellId(prevCell, dropCell);
 };
 </script>

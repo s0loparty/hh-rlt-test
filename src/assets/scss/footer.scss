@@ -1,7 +1,22 @@
 .footer {
+	position: relative;
 	margin-top: var(--space);
 	padding: 18px;
 	border-radius: var(--rounded);
 	border: 1px solid var(--color-secondary);
-	background-color: var(--color-parimary);
+	background-color: var(--color-primary);
+
+	&__close {
+		cursor: pointer;
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		background-color: transparent;
+		border: none;
+		stroke: var(--color-text);
+	}
+
+	&:focus {
+		outline: none;
+	}
 }

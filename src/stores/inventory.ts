@@ -29,7 +29,6 @@ export const useInventoryStore = defineStore('inventoryStore', () => {
 
 	const updateByCellId = (currentCellId: number, newCellId: number): void => {
 		const idx = inventory.value.findIndex((i) => i.cell === currentCellId);
-
 		inventory.value[idx].cell = newCellId;
 	};
 
